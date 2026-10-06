@@ -1,0 +1,27 @@
+{
+    "name": "schlossbewohnerinnen/wolledb",
+    "description": "Wool database for TYPO3",
+    "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
+    "keywords": [
+        "sitepackage"
+    ], 
+    "authors": [
+        {
+            "name": "Christos"
+        }, 
+        {
+            "name": "Selina"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SBW\\WSB\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "wdb"
+        }
+    }
+}
