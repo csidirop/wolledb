@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:wdb/Resources/Private/Language/locallang.xlf" date="2026-06-01T11:55:00Z">
+    <header/>
+    <body>
+      <trans-unit id="tx_wdb_domain_model_yarn.title">
+        <source>Yarn</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.hidden">
+        <source>Visible</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.name">
+        <source>Yarn name</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
