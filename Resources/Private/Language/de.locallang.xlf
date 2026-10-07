@@ -1,15 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="de" datatype="plaintext" original="EXT:tea/Resources/Private/Language/de.locallang.xlf" date="2026-06-01T11:55:00Z">
+  <file source-language="en" target-language="de" datatype="plaintext" original="EXT:wdb/Resources/Private/Language/locallang.xlf" date="2026-06-01T11:55:00Z">
     <header/>
     <body>
       <trans-unit id="tx_wdb_domain_model_yarn.title" approved="yes">
         <source>Yarn</source>
         <target>Garnsorte</target>
-        <trans-unit id="tx_wdb_domain_model_yarn.name" approved="yes">
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.hidden" approved="yes">
+        <source>Visible</source>
+        <target>Sichtbar</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.name" approved="yes">
         <source>Yarn name</source>
         <target>Garnbezeichnung</target>
       </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.hook_size" approved="yes">
+        <source>Hook size</source>
+        <target>Häkelnadelstärke</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.needle_size" approved="yes">
+        <source>Needle size</source>
+        <target>Nadelstärke</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yardage" approved="yes">
+        <source>Yardage (m per 100 g)</source>
+        <target>Lauflänge (m pro 100 g)</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber" approved="yes">
+        <source>Main fiber</source>
+        <target>Hauptfaser</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.fibercomposition" approved="yes">
+        <source>Fiber composition</source>
+        <target>Faserzusammensetzung</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight" approved="yes">
+        <source>Yarn weight</source>
+        <target>Garnstärke</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.source" approved="yes">
+        <source>Source</source>
+        <target>Quelle</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.wool" approved="yes">
+        <source>Wool</source>
+        <target>Wolle</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.cotton" approved="yes">
+        <source>Cotton</source>
+        <target>Baumwolle</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.acrylic" approved="yes">
+        <source>Acrylic</source>
+        <target>Acryl</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.silk" approved="yes">
+        <source>Silk</source>
+        <target>Seide</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.linen" approved="yes">
+        <source>Linen</source>
+        <target>Leinen</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.alpaca" approved="yes">
+        <source>Alpaca</source>
+        <target>Alpaka</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.cashmere" approved="yes">
+        <source>Cashmere</source>
+        <target>Kaschmir</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.bamboo" approved="yes">
+        <source>Bamboo</source>
+        <target>Bambus</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.hemp" approved="yes">
+        <source>Hemp</source>
+        <target>Hanf</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.nylon" approved="yes">
+        <source>Nylon</source>
+        <target>Nylon</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.polyester" approved="yes">
+        <source>Polyester</source>
+        <target>Polyester</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.other" approved="yes">
+        <source>Other</source>
+        <target>Sonstige</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.lace" approved="yes">
+        <source>Lace</source>
+        <target>Lace</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.fingering" approved="yes">
+        <source>Fingering</source>
+        <target>Fingering</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.sport" approved="yes">
+        <source>Sport</source>
+        <target>Sport</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.dk" approved="yes">
+        <source>DK</source>
+        <target>DK</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.aran" approved="yes">
+        <source>Aran</source>
+        <target>Aran</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.bulky" approved="yes">
+        <source>Bulky</source>
+        <target>Bulky</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.super_bulky" approved="yes">
+        <source>Super bulky</source>
+        <target>Super Bulky</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.jumbo" approved="yes">
+        <source>Jumbo</source>
+        <target>Jumbo</target>
       </trans-unit>
     </body>
   </file>

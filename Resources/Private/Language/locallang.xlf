@@ -12,6 +12,87 @@
       <trans-unit id="tx_wdb_domain_model_yarn.name">
         <source>Yarn name</source>
       </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.hook_size">
+        <source>Hook size</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.needle_size">
+        <source>Needle size</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yardage">
+        <source>Yardage (m per 100 g)</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber">
+        <source>Main fiber</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.fibercomposition">
+        <source>Fiber composition</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight">
+        <source>Yarn weight</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.source">
+        <source>Source</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.wool">
+        <source>Wool</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.cotton">
+        <source>Cotton</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.acrylic">
+        <source>Acrylic</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.silk">
+        <source>Silk</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.linen">
+        <source>Linen</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.alpaca">
+        <source>Alpaca</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.cashmere">
+        <source>Cashmere</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.bamboo">
+        <source>Bamboo</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.hemp">
+        <source>Hemp</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.nylon">
+        <source>Nylon</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.polyester">
+        <source>Polyester</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.mainfiber.other">
+        <source>Other</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.lace">
+        <source>Lace</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.fingering">
+        <source>Fingering</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.sport">
+        <source>Sport</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.dk">
+        <source>DK</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.aran">
+        <source>Aran</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.bulky">
+        <source>Bulky</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.super_bulky">
+        <source>Super bulky</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.jumbo">
+        <source>Jumbo</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
