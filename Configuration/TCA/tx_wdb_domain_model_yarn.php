@@ -5,18 +5,15 @@ declare(strict_types=1);
 return [
     'ctrl' => [
         'title' => 'Yarn',
-        'label' => 'title',
+        'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'delete' => 'deleted',
-        'default_sortby' => 'title',
+        'default_sortby' => 'name',
         'iconfile' => 'EXT:wdb/Resources/Public/Icons/Extension.svg',
-        'searchFields' => 'title, description',
+        'searchFields' => 'name, mainfiber, yarn_weight',
         'enablecolumns' => [
-            'fe_group' => 'fe_group',
             'disabled' => 'hidden',
-            'starttime' => 'starttime',
-            'endtime' => 'endtime',
         ],
         'transOrigPointerField' => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
@@ -24,9 +21,28 @@ return [
         'translationSource' => 'l10n_source',
         'versioningWS' => true,
     ],
+    'types' => [
+        '0' => [
+            'showitem' => 'name, mainfiber, fibercomposition, yarn_weight, yardage, hook_size, needle_size, source, hidden',
+        ],
+    ],
     'columns' => [
+        'hidden' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:tx_wdb_domain_model_yarn.hidden',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ],
+                ],
+            ],
+        ],
         'name' => [
-            'label' => 'Yarn Name',
+            'label' => 'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:tx_wdb_domain_model_yarn.name',
             'config' => [
                 'type' => 'input',
                 'size' => 40,
@@ -59,6 +75,13 @@ return [
                 'type' => 'number',
                 'format' => 'integer',
                 'size' => 10,
+                'range' => [
+                    'lower' => 100,
+                    'upper' => 800,
+                ],
+                'slider' => [
+                    'step' => 5,
+                ],
                 'default' => 0,
             ],
         ],
