@@ -10,7 +10,7 @@ return [
         'crdate' => 'crdate',
         'delete' => 'deleted',
         'default_sortby' => 'name',
-        'iconfile' => 'EXT:wdb/Resources/Public/Icons/Extension.svg',
+        'iconfile' => 'EXT:wdb/Resources/Public/Icons/Yarn.svg',
         'searchFields' => 'name, mainfiber, yarn_weight',
         'enablecolumns' => [
             'disabled' => 'hidden',
