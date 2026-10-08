@@ -93,6 +93,24 @@
       <trans-unit id="tx_wdb_domain_model_yarn.yarn_weight.jumbo">
         <source>Jumbo</source>
       </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.title">
+        <source>Skein</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.hidden">
+        <source>Visible</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.yarn">
+        <source>Yarn</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.color">
+        <source>Color</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.initial_weight">
+        <source>Initial weight (g)</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.current_weight">
+        <source>Current weight (g)</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
