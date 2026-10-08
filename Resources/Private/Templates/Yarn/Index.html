@@ -7,6 +7,13 @@
             <f:translate key="plugin.yarnindex.heading"/>
         </h2>
 
-        <h2>{message}</h2>
+        <h3>{message}</h3>
+        <h3>Yarns:</h3>
+        <p>
+            <f:debug>{_all}</f:debug>
+            <f:for each="{yarns}" as="yarn">
+                {yarn.name}<br/>
+            </f:for>
+        </p>
     </f:section>
 </html>

@@ -12,6 +12,6 @@ return static function (ContainerConfigurator $containerConfigurator) {
         ->autoconfigure();
 
     $services
-        ->load('SBW\\WDB\\', '../Classes/*');
-
+        ->load('SBW\\WDB\\', '../Classes/*')
+        ->exclude('../Classes/Domain/Model/*');
 };
