@@ -123,6 +123,30 @@
         <source>Jumbo</source>
         <target>Jumbo</target>
       </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.title" approved="yes">
+         <source>Skein</source>
+         <target>Knäuel</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.hidden" approved="yes">
+         <source>Visible</source>
+         <target>Sichtbar</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.yarn" approved="yes">
+         <source>Yarn</source>
+         <target>Garn</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.color" approved="yes">
+         <source>Color</source>
+         <target>Farbe</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.initial_weight" approved="yes">
+         <source>Initial weight (g)</source>
+         <target>Anfangsgewicht (g)</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_skein.current_weight" approved="yes">
+         <source>Current weight (g)</source>
+         <target>Aktuelles Gewicht (g)</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>
