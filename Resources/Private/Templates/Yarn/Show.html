@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:debug>{_all}</f:debug>
+    <h2>
+        {yarn.name}
+    </h2>
+
+    <table>
+        <tbody>
+            <f:if condition="{yarn.yardage}">
+                <tr>
+                    <th scope="row">Yardage</th>
+                    <td>{yarn.yardage}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{yarn.hookSize}">
+                <tr>
+                    <th scope="row">Hook Size</th>
+                    <td>{yarn.hookSize}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{yarn.needleSize}">
+                <tr>
+                    <th scope="row">Needle Size</th>
+                    <td>{yarn.needleSize}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{yarn.mainfiber}">
+                <tr>
+                    <th scope="row">Main Fiber</th>
+                    <td>{yarn.mainfiber}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{yarn.fibercomposition}">
+                <tr>
+                    <th scope="row">Fiber Composition</th>
+                    <td>{yarn.fibercomposition}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{yarn.yarnWeight}">
+                <tr>
+                    <th scope="row">Yarn Weight</th>
+                    <td>{yarn.yarnWeight}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{yarn.source}">
+                <tr>
+                    <th scope="row">Source</th>
+                    <td>{yarn.source}</td>
+                </tr>
+            </f:if>
+        </tbody>
+    </table>
+
+    </br />
+
+    <f:link.action action="index">Wolle back to index?</f:link.action>
+</f:section>
+
+</html>

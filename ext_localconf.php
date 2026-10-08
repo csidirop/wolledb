@@ -15,6 +15,6 @@ ExtensionUtility::configurePlugin(
     'YarnIndex',
     // all actions
     [
-        YarnController::class => 'index',
+        YarnController::class => 'index, show',
     ]
 );

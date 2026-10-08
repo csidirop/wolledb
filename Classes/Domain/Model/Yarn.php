@@ -19,10 +19,10 @@ class Yarn extends AbstractEntity
     protected string $name = '';
 
     #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
-    protected string $hook_size = '';
+    protected string $hookSize = '';
 
     #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
-    protected string $needle_size = '';
+    protected string $needleSize = '';
 
     #[Extbase\Validate(['validator' => 'Integer'])]
     protected int $yardage = 0;
@@ -51,22 +51,22 @@ class Yarn extends AbstractEntity
 
     public function getHookSize(): string
     {
-        return $this->hook_size;
+        return $this->hookSize;
     }
 
-    public function setHookSize(string $hook_size): void
+    public function setHookSize(string $hookSize): void
     {
-        $this->hook_size = $hook_size;
+        $this->hookSize = $hookSize;
     }
 
     public function getNeedleSize(): string
     {
-        return $this->needle_size;
+        return $this->needleSize;
     }
 
-    public function setNeedleSize(string $needle_size): void
+    public function setNeedleSize(string $needleSize): void
     {
-        $this->needle_size = $needle_size;
+        $this->needleSize = $needleSize;
     }
 
     public function getYardage(): int

@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-    <f:layout name="Default"/>
+<f:layout name="Default" />
 
-    <f:section name="main">
-        <h2>
-            <f:translate key="plugin.yarnindex.heading"/>
-        </h2>
+<f:section name="main">
+    <h2>
+        <f:translate key="plugin.yarnindex.heading" />
+    </h2>
 
-        <h3>{message}</h3>
-        <h3>Yarns:</h3>
-        <p>
-            <f:debug>{_all}</f:debug>
-            <f:for each="{yarns}" as="yarn">
-                {yarn.name}<br/>
-            </f:for>
-        </p>
-    </f:section>
+    <h3>{message}</h3>
+    <h3>Yarns:</h3>
+    <p>
+        <f:debug>{_all}</f:debug>
+        <f:for each="{yarns}" as="yarn">
+            <f:link.action action="show" arguments="{yarn: yarn}">
+                {yarn.name}
+            </f:link.action>
+            <br />
+        </f:for>
+    </p>
+</f:section>
+
 </html>

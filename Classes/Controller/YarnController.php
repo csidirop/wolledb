@@ -7,7 +7,7 @@ namespace SBW\WDB\Controller;
 use Psr\Http\Message\ResponseInterface;
 use SBW\WDB\Domain\Model\Yarn;
 use SBW\WDB\Domain\Repository\YarnRepository;
-// use TYPO3\CMS\Core\Http\PropagateResponseException;
+use TYPO3\CMS\Core\Http\PropagateResponseException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Controller\ErrorController;
 
@@ -25,6 +25,15 @@ class YarnController extends ActionController
     {
         $this->view->assign('message', 'Hello world!');
         $this->view->assign('yarns', $this->yarnRepository->findAll());
+        return $this->htmlResponse();
+    }
+
+    /**
+     * @throws PropagateResponseException
+     */
+    public function showAction(?Yarn $yarn): ResponseInterface
+    {
+        $this->view->assign('yarn', $yarn);
         return $this->htmlResponse();
     }
 
