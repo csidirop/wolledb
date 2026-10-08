@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "SBW\\WSB\\": "Classes/"
+            "SBW\\WDB\\": "Classes/"
         }
     },
     "extra": {

@@ -111,6 +111,12 @@
       <trans-unit id="tx_wdb_domain_model_skein.current_weight">
         <source>Current weight (g)</source>
       </trans-unit>
+      <trans-unit id="plugin.yarnindex.title">
+        <source>Yarn List</source>
+      </trans-unit>
+      <trans-unit id="plugin.yarnindex.description">
+        <source>Shows an index of yarns</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -147,6 +147,14 @@
          <source>Current weight (g)</source>
          <target>Aktuelles Gewicht (g)</target>
        </trans-unit>
+      <trans-unit id="plugin.yarnindex.title" approved="yes">
+        <source>Yarn List</source>
+        <target>Garnliste</target>
+      </trans-unit>
+      <trans-unit id="plugin.yarnindex.description" approved="yes">
+        <source>Shows an index of yarns</source>
+        <target>Zeigt eine Liste von Garnsorten an</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
