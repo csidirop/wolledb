@@ -16,5 +16,10 @@ ExtensionUtility::configurePlugin(
     // all actions
     [
         YarnController::class => 'index, show',
+    ],
+    // The list reacts to filter/sort parameters, so it must not be cached with the page.
+    [
+        YarnController::class => 'index',
     ]
+
 );

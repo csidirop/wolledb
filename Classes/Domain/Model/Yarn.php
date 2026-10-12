@@ -34,7 +34,7 @@ class Yarn extends AbstractEntity
     protected string $fibercomposition = '';
 
     #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
-    protected string $yarn_weight = '';
+    protected string $yarnWeight = '';
 
     #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $source = '';
@@ -101,12 +101,12 @@ class Yarn extends AbstractEntity
 
     public function getYarnWeight(): string
     {
-        return $this->yarn_weight;
+        return $this->yarnWeight;
     }
 
-    public function setYarnWeight(string $yarn_weight): void
+    public function setYarnWeight(string $yarnWeight): void
     {
-        $this->yarn_weight = $yarn_weight;
+        $this->yarnWeight = $yarnWeight;
     }
 
     public function getSource(): string

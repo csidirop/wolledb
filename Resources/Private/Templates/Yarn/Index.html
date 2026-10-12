@@ -4,20 +4,133 @@
 
 <f:section name="main">
     <h2>
-        <f:translate key="plugin.yarnindex.heading" />
+        <f:translate key="tx_wdb_domain_model_yarn.title" />
     </h2>
 
-    <h3>{message}</h3>
-    <h3>Yarns:</h3>
-    <p>
-        <f:debug>{_all}</f:debug>
-        <f:for each="{yarns}" as="yarn">
-            <f:link.action action="show" arguments="{yarn: yarn}">
-                {yarn.name}
-            </f:link.action>
-            <br />
-        </f:for>
-    </p>
+    <!-- Filter: a GET form, so the filtered list has a URL that can be bookmarked or shared -->
+    <f:form action="index" method="get" class="row g-2 mb-3">
+        <input type="hidden" name="tx_wdb_yarnindex[sortBy]" value="{filter.sortBy}" />
+        <input type="hidden" name="tx_wdb_yarnindex[sortDirection]" value="{filter.sortDirection}" />
+
+        <div class="col-auto">
+            <label for="filter-mainfiber" class="form-label">
+                <f:translate key="tx_wdb_domain_model_yarn.mainfiber" />
+            </label>
+            <select name="tx_wdb_yarnindex[mainfiber]" id="filter-mainfiber" class="form-select">
+                <option value="">Alle</option>
+                <f:for each="{mainfibers}" as="fiber">
+                    <option value="{fiber}" {f:if(condition: '{fiber} == {filter.mainfiber}' , then: 'selected' )}>
+                        <f:translate key="tx_wdb_domain_model_yarn.mainfiber.{fiber}" default="{fiber}" />
+                    </option>
+                </f:for>
+            </select>
+        </div>
+
+        <div class="col-auto">
+            <label for="filter-yarnweight" class="form-label">
+                <f:translate key="tx_wdb_domain_model_yarn.yarn_weight" />
+            </label>
+            <select name="tx_wdb_yarnindex[yarnWeight]" id="filter-yarnweight" class="form-select">
+                <option value="">Alle</option>
+                <f:for each="{yarnWeights}" as="weight">
+                    <option value="{weight}" {f:if(condition: '{weight} == {filter.yarnWeight}' , then: 'selected' )}>
+                        <f:translate key="tx_wdb_domain_model_yarn.yarn_weight.{weight}" default="{weight}" />
+                    </option>
+                </f:for>
+            </select>
+        </div>
+
+        <div class="col-auto align-self-end">
+            <button type="submit" class="btn btn-primary">Filtern</button>
+            <f:link.action action="index" class="btn btn-link">Zurücksetzen</f:link.action>
+        </div>
+    </f:form>
+
+    <f:if condition="{yarns}">
+        <f:then>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.name" />
+                            </th>
+                            <th scope="col">
+                                <f:link.action action="index"
+                                    arguments="{sortBy: 'hookSize', sortDirection: nextDirection.hookSize, mainfiber: filter.mainfiber, yarnWeight: filter.yarnWeight}">
+                                    <f:translate key="tx_wdb_domain_model_yarn.hook_size" />
+                                    <f:if condition="{filter.sortBy} == 'hookSize'">
+                                        <f:if condition="{filter.sortDirection} == 'desc'">
+                                            <f:then>▼</f:then>
+                                            <f:else>▲</f:else>
+                                        </f:if>
+                                    </f:if>
+                                </f:link.action>
+                            </th>
+                            <th scope="col">
+                                <f:link.action action="index"
+                                    arguments="{sortBy: 'needleSize', sortDirection: nextDirection.needleSize, mainfiber: filter.mainfiber, yarnWeight: filter.yarnWeight}">
+                                    <f:translate key="tx_wdb_domain_model_yarn.needle_size" />
+                                    <f:if condition="{filter.sortBy} == 'needleSize'">
+                                        <f:if condition="{filter.sortDirection} == 'desc'">
+                                            <f:then>▼</f:then>
+                                            <f:else>▲</f:else>
+                                        </f:if>
+                                    </f:if>
+                                </f:link.action>
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.yardage" />
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.mainfiber" />
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.fibercomposition" />
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.yarn_weight" />
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.source" />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <f:for each="{yarns}" as="yarn">
+                            <tr>
+                                <td>
+                                    <f:link.action action="show" arguments="{yarn: yarn}">{yarn.name}</f:link.action>
+                                </td>
+                                <td>{yarn.hookSize}</td>
+                                <td>{yarn.needleSize}</td>
+                                <td>
+                                    <f:if condition="{yarn.yardage}">{yarn.yardage}</f:if>
+                                </td>
+                                <td>
+                                    <f:if condition="{yarn.mainfiber}">
+                                        <f:translate key="tx_wdb_domain_model_yarn.mainfiber.{yarn.mainfiber}"
+                                            default="{yarn.mainfiber}" />
+                                    </f:if>
+                                </td>
+                                <td>{yarn.fibercomposition}</td>
+                                <td>
+                                    <f:if condition="{yarn.yarnWeight}">
+                                        <f:translate key="tx_wdb_domain_model_yarn.yarn_weight.{yarn.yarnWeight}"
+                                            default="{yarn.yarnWeight}" />
+                                    </f:if>
+                                </td>
+                                <td>{yarn.source}</td>
+                            </tr>
+                        </f:for>
+                    </tbody>
+                </table>
+            </div>
+        </f:then>
+        <f:else>
+            <p>Keine Garne gefunden.</p>
+        </f:else>
+    </f:if>
 </f:section>
 
 </html>
