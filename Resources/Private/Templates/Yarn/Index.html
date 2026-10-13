@@ -98,6 +98,9 @@
                             <th scope="col">
                                 <f:translate key="tx_wdb_domain_model_yarn.source" />
                             </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_yarn.stock" />
+                            </th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -126,6 +129,26 @@
                                     </f:if>
                                 </td>
                                 <td>{yarn.source}</td>
+                                <td>
+                                    <f:if condition="{yarn.stockCount}">
+                                        <f:then>
+                                            {yarn.stockCount} Knäuel · {yarn.stockWeight} g
+                                            <div class="small text-muted">
+                                                <f:for each="{yarn.stockColors}" as="entry" iteration="it">
+                                                    <f:if condition="{entry.color}">
+                                                        <f:then>{entry.color}</f:then>
+                                                        <f:else>ohne Farbe</f:else>
+                                                    </f:if> ×{entry.count}<f:if condition="{it.isLast}">
+                                                        <f:else>, </f:else>
+                                                    </f:if>
+                                                </f:for>
+                                            </div>
+                                        </f:then>
+                                        <f:else>
+                                            <span class="text-muted">–</span>
+                                        </f:else>
+                                    </f:if>
+                                </td>
                                 <td class="text-nowrap">
                                     <f:link.action action="edit" arguments="{yarn: yarn}"
                                         class="btn btn-sm btn-outline-secondary">Bearbeiten</f:link.action>

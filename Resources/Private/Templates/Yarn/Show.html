@@ -58,6 +58,59 @@
         <f:link.action action="edit" arguments="{yarn: yarn}" class="btn btn-primary">Bearbeiten</f:link.action>
         <f:link.action action="index" class="btn btn-link">Zurück zur Übersicht</f:link.action>
     </p>
+
+    <h3 class="mt-4">
+        <f:translate key="tx_wdb_domain_model_yarn.skeins" />
+    </h3>
+
+    <f:if condition="{yarn.skeins}">
+        <f:then>
+            <p>
+                <f:translate key="tx_wdb_domain_model_yarn.stock" />:
+                <f:if condition="{yarn.stockCount}">
+                    <f:then>{yarn.stockCount} Knäuel · {yarn.stockWeight} g</f:then>
+                    <f:else>kein Vorrat</f:else>
+                </f:if>
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_skein.color" />
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_skein.initial_weight" />
+                            </th>
+                            <th scope="col">
+                                <f:translate key="tx_wdb_domain_model_skein.current_weight" />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <f:for each="{yarn.sortedSkeins}" as="skein">
+                            <tr class="{f:if(condition: skein.usedUp, then: 'text-muted table-secondary')}">
+                                <td>
+                                    <f:if condition="{skein.color}">
+                                        <f:then>{skein.color}</f:then>
+                                        <f:else>–</f:else>
+                                    </f:if>
+                                    <f:if condition="{skein.usedUp}"><span class="badge bg-secondary">verbraucht</span>
+                                    </f:if>
+                                </td>
+                                <td>{skein.initialWeight}</td>
+                                <td>{skein.currentWeight}</td>
+                            </tr>
+                        </f:for>
+                    </tbody>
+                </table>
+            </div>
+        </f:then>
+        <f:else>
+            <p class="text-muted">Noch keine Knäuel vorhanden.</p>
+        </f:else>
+    </f:if>
 </f:section>
 
 </html>

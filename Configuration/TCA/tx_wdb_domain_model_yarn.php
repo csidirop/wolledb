@@ -69,7 +69,7 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'yardage'=> [
+        'yardage' => [
             'label' => 'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:tx_wdb_domain_model_yarn.yardage',
             'config' => [
                 'type' => 'number',
@@ -141,6 +141,17 @@ return [
                 'size' => 40,
                 'max' => 255,
                 'eval' => 'trim',
+            ],
+        ],
+        'skeins' => [
+            'label' => 'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:tx_wdb_domain_model_yarn.skeins',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_wdb_domain_model_skein',
+                'foreign_field' => 'yarn',
+                'appearance' => [
+                    'collapseAll' => true,
+                ],
             ],
         ],
     ],
