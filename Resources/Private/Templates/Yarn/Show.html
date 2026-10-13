@@ -3,7 +3,6 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-    <f:debug>{_all}</f:debug>
     <h2>
         {yarn.name}
     </h2>
@@ -55,9 +54,10 @@
         </tbody>
     </table>
 
-    </br />
-
-    <f:link.action action="index">Wolle back to index?</f:link.action>
+    <p class="mt-3">
+        <f:link.action action="edit" arguments="{yarn: yarn}" class="btn btn-primary">Bearbeiten</f:link.action>
+        <f:link.action action="index" class="btn btn-link">Zurück zur Übersicht</f:link.action>
+    </p>
 </f:section>
 
 </html>

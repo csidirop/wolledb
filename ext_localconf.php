@@ -15,11 +15,11 @@ ExtensionUtility::configurePlugin(
     'YarnIndex',
     // all actions
     [
-        YarnController::class => 'index, show',
+        YarnController::class => 'index, show, new, create, edit, update, delete',
     ],
     // The list reacts to filter/sort parameters, so it must not be cached with the page.
     [
-        YarnController::class => 'index',
+        YarnController::class => 'index, new, create, edit, update, delete',
     ]
 
 );

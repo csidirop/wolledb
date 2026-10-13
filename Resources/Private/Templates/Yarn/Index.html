@@ -7,6 +7,10 @@
         <f:translate key="tx_wdb_domain_model_yarn.title" />
     </h2>
 
+    <p>
+        <f:link.action action="new" class="btn btn-success">Neues Garn anlegen</f:link.action>
+    </p>
+
     <!-- Filter: a GET form, so the filtered list has a URL that can be bookmarked or shared -->
     <f:form action="index" method="get" class="row g-2 mb-3">
         <input type="hidden" name="tx_wdb_yarnindex[sortBy]" value="{filter.sortBy}" />
@@ -94,6 +98,7 @@
                             <th scope="col">
                                 <f:translate key="tx_wdb_domain_model_yarn.source" />
                             </th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -121,6 +126,14 @@
                                     </f:if>
                                 </td>
                                 <td>{yarn.source}</td>
+                                <td class="text-nowrap">
+                                    <f:link.action action="edit" arguments="{yarn: yarn}"
+                                        class="btn btn-sm btn-outline-secondary">Bearbeiten</f:link.action>
+                                    <f:form action="delete" arguments="{yarn: yarn}" method="post" class="d-inline"
+                                        onsubmit="return confirm('Dieses Garn wirklich löschen?');">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Löschen</button>
+                                    </f:form>
+                                </td>
                             </tr>
                         </f:for>
                     </tbody>

@@ -1,0 +1,79 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<!-- Form fields shared by the "new" and "edit" forms. Must be rendered inside an f:form with objectName="yarn". -->
+<f:form.validationResults for="yarn">
+    <f:if condition="{validationResults.flattenedErrors}">
+        <div class="alert alert-danger" role="alert">
+            Bitte prüfe deine Eingaben:
+            <ul>
+                <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+                    <li>
+                        {propertyPath}:
+                        <f:for each="{errors}" as="error">{error}</f:for>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </f:if>
+</f:form.validationResults>
+
+<div class="mb-3">
+    <label for="yarn-name" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.name" />
+    </label>
+    <f:form.textfield property="name" id="yarn-name" class="form-control" required="required" maxlength="255" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-hooksize" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.hook_size" />
+    </label>
+    <f:form.textfield property="hookSize" id="yarn-hooksize" class="form-control" maxlength="255"
+        placeholder="z. B. 3.5 mm" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-needlesize" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.needle_size" />
+    </label>
+    <f:form.textfield property="needleSize" id="yarn-needlesize" class="form-control" maxlength="255"
+        placeholder="z. B. 3.5 mm" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-yardage" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.yardage" />
+    </label>
+    <f:form.textfield property="yardage" type="number" id="yarn-yardage" class="form-control" required="required"
+        additionalAttributes="{min: 100, max: 800}" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-mainfiber" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.mainfiber" />
+    </label>
+    <f:form.select property="mainfiber" id="yarn-mainfiber" class="form-select" options="{mainfibers}" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-fibercomposition" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.fibercomposition" />
+    </label>
+    <f:form.textfield property="fibercomposition" id="yarn-fibercomposition" class="form-control" maxlength="255" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-yarnweight" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.yarn_weight" />
+    </label>
+    <f:form.select property="yarnWeight" id="yarn-yarnweight" class="form-select" options="{yarnWeights}"
+        prependOptionLabel="– bitte wählen –" prependOptionValue="" />
+</div>
+
+<div class="mb-3">
+    <label for="yarn-source" class="form-label">
+        <f:translate key="tx_wdb_domain_model_yarn.source" />
+    </label>
+    <f:form.textfield property="source" id="yarn-source" class="form-control" maxlength="255" />
+</div>
+
+</html>

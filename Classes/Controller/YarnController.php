@@ -10,6 +10,9 @@ use SBW\WDB\Domain\Repository\YarnRepository;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Controller\ErrorController;
+use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Http\RedirectResponse;
 
 /**
  * Controller for the main "Yarn" FE plugin.
@@ -19,7 +22,8 @@ class YarnController extends ActionController
     public function __construct(
         private readonly YarnRepository $yarnRepository,
         private readonly ErrorController $errorController,
-    ) {}
+    ) {
+    }
 
     public function indexAction(
         string $mainfiber = '',
@@ -62,16 +66,119 @@ class YarnController extends ActionController
      *
      * @return list<string>
      */
+
+    /**
+     * Shows the form for a new yarn.
+     *
+     * The yarn argument is only filled when the form is shown again after a failed validation,
+     * so the already entered values are kept. Validation must be ignored here, otherwise showing
+     * the form again would trigger the validation of the incomplete object once more.
+     */
+    #[IgnoreValidation(['argumentName' => 'yarn'])]
+    public function newAction(?Yarn $yarn = null): ResponseInterface
+    {
+        $this->view->assignMultiple([
+            'yarn' => $yarn,
+            'mainfibers' => $this->getSelectOptions('mainfiber'),
+            'yarnWeights' => $this->getSelectOptions('yarn_weight'),
+        ]);
+        return $this->htmlResponse();
+    }
+
+    /**
+     * Saves a new yarn. The model's validators run before this method is called.
+     * On errors, Extbase shows the "new" form again.
+     */
+    public function createAction(Yarn $yarn): ResponseInterface
+    {
+        // The record is stored on the page set in plugin.tx_wdb.persistence.storagePid.
+        $this->yarnRepository->add($yarn);
+        $this->addFlashMessage('Das Garn "' . $yarn->getName() . '" wurde angelegt.');
+
+        $uri = $this->uriBuilder->reset()->uriFor('index');
+        return new RedirectResponse($uri, 303);
+    }
+
+    /**
+     * Shows the form to edit an existing yarn.
+     *
+     * Validation is ignored so the form also opens for records that don't meet the current rules,
+     * and so it can be shown again after a failed update.
+     */
+    #[IgnoreValidation(['argumentName' => 'yarn'])]
+    public function editAction(Yarn $yarn): ResponseInterface
+    {
+        $this->view->assignMultiple([
+            'yarn' => $yarn,
+            'mainfibers' => $this->getSelectOptions('mainfiber'),
+            'yarnWeights' => $this->getSelectOptions('yarn_weight'),
+        ]);
+        return $this->htmlResponse();
+    }
+
+    /**
+     * Saves the changes. The model's validators run before this method is called;
+     * on errors Extbase shows the "edit" form again.
+     */
+    public function updateAction(Yarn $yarn): ResponseInterface
+    {
+        $this->yarnRepository->update($yarn);
+        $this->addFlashMessage('Das Garn "' . $yarn->getName() . '" wurde gespeichert.');
+
+        $uri = $this->uriBuilder->reset()->uriFor('index');
+        return new RedirectResponse($uri, 303);
+    }
+
+
+    /**
+     * Deletes a yarn. Only reachable via POST (see the form in the list), never via a plain link.
+     *
+     * Validation is ignored on purpose: an existing record that does not meet today's validation rules
+     * (e.g. imported data) must still be deletable.
+     */
+    #[IgnoreValidation(['argumentName' => 'yarn'])]
+    public function deleteAction(Yarn $yarn): ResponseInterface
+    {
+        $name = $yarn->getName();
+        // The TCA has a "deleted" field, so this only marks the record as deleted (it can be restored in the backend).
+        $this->yarnRepository->remove($yarn);
+        $this->addFlashMessage('Das Garn "' . $name . '" wurde gelöscht.');
+
+        #return $this->redirectToIndex();
+        $uri = $this->uriBuilder->reset()->uriFor('index');
+        return new RedirectResponse($uri, 303);
+    }
+
+
     private function getSelectValues(string $field): array
     {
         $items = $GLOBALS['TCA']['tx_wdb_domain_model_yarn']['columns'][$field]['config']['items'] ?? [];
         $values = [];
         foreach ($items as $item) {
             // Newer TYPO3 versions use ['label' => ..., 'value' => ...], older ones [label, value].
-            $values[] = (string)($item['value'] ?? $item[1] ?? '');
+            $values[] = (string) ($item['value'] ?? $item[1] ?? '');
         }
 
-        return array_values(array_filter($values, static fn (string $value): bool => $value !== ''));
+        return array_values(array_filter($values, static fn(string $value): bool => $value !== ''));
     }
+
+    /**
+     * Select options as value => translated label, e.g. ['wool' => 'Wolle'].
+     *
+     * @return array<string, string>
+     */
+    private function getSelectOptions(string $field): array
+    {
+        $options = [];
+        foreach ($this->getSelectValues($field) as $value) {
+            $options[$value] = LocalizationUtility::translate(
+                'tx_wdb_domain_model_yarn.' . $field . '.' . $value,
+                'Wdb'
+            ) ?? $value;
+        }
+
+        return $options;
+    }
+
 
 }
