@@ -8,16 +8,15 @@ use Psr\Http\Message\ResponseInterface;
 use SBW\WDB\Domain\Model\Yarn;
 use SBW\WDB\Domain\Repository\YarnRepository;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Frontend\Controller\ErrorController;
+use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use TYPO3\CMS\Core\Http\RedirectResponse;
+use TYPO3\CMS\Frontend\Controller\ErrorController;
 
 /**
  * Controller for the main "Yarn" FE plugin.
  */
-class YarnController extends ActionController
+class YarnController extends AbstractController
 {
     public function __construct(
         private readonly YarnRepository $yarnRepository,
@@ -62,12 +61,6 @@ class YarnController extends ActionController
     }
 
     /**
-     * Reads the allowed values of a select field from the TCA.
-     *
-     * @return list<string>
-     */
-
-    /**
      * Shows the form for a new yarn.
      *
      * The yarn argument is only filled when the form is shown again after a failed validation,
@@ -93,10 +86,9 @@ class YarnController extends ActionController
     {
         // The record is stored on the page set in plugin.tx_wdb.persistence.storagePid.
         $this->yarnRepository->add($yarn);
-        $this->addFlashMessage('Das Garn "' . $yarn->getName() . '" wurde angelegt.');
+        $this->addFlashMessage($this->translate('frontend.flash.yarn.created', [$yarn->getName()]));
 
-        $uri = $this->uriBuilder->reset()->uriFor('index');
-        return new RedirectResponse($uri, 303);
+        return $this->redirectToIndex();
     }
 
     /**
@@ -123,12 +115,10 @@ class YarnController extends ActionController
     public function updateAction(Yarn $yarn): ResponseInterface
     {
         $this->yarnRepository->update($yarn);
-        $this->addFlashMessage('Das Garn "' . $yarn->getName() . '" wurde gespeichert.');
+        $this->addFlashMessage($this->translate('frontend.flash.yarn.updated', [$yarn->getName()]));
 
-        $uri = $this->uriBuilder->reset()->uriFor('index');
-        return new RedirectResponse($uri, 303);
+        return $this->redirectToIndex();
     }
-
 
     /**
      * Deletes a yarn. Only reachable via POST (see the form in the list), never via a plain link.
@@ -142,14 +132,27 @@ class YarnController extends ActionController
         $name = $yarn->getName();
         // The TCA has a "deleted" field, so this only marks the record as deleted (it can be restored in the backend).
         $this->yarnRepository->remove($yarn);
-        $this->addFlashMessage('Das Garn "' . $name . '" wurde gelöscht.');
+        $this->addFlashMessage($this->translate('frontend.flash.yarn.deleted', [$name]));
 
-        #return $this->redirectToIndex();
+        return $this->redirectToIndex();
+    }
+
+    /**
+     * Redirect with a relative URL. $this->redirect() would build an absolute URL with the scheme,
+     * host and port TYPO3 detects, which can be wrong behind a reverse proxy (e.g. ddev).
+     */
+    private function redirectToIndex(): ResponseInterface
+    {
         $uri = $this->uriBuilder->reset()->uriFor('index');
+
         return new RedirectResponse($uri, 303);
     }
 
-
+    /**
+     * Reads the allowed values of a select field from the TCA.
+     *
+     * @return list<string>
+     */
     private function getSelectValues(string $field): array
     {
         $items = $GLOBALS['TCA']['tx_wdb_domain_model_yarn']['columns'][$field]['config']['items'] ?? [];
@@ -179,6 +182,5 @@ class YarnController extends ActionController
 
         return $options;
     }
-
 
 }

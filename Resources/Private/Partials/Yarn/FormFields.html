@@ -3,7 +3,7 @@
 <f:form.validationResults for="yarn">
     <f:if condition="{validationResults.flattenedErrors}">
         <div class="alert alert-danger" role="alert">
-            Bitte prüfe deine Eingaben:
+            <f:translate key="frontend.form.errors" />
             <ul>
                 <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
                     <li>
@@ -28,7 +28,7 @@
         <f:translate key="tx_wdb_domain_model_yarn.hook_size" />
     </label>
     <f:form.textfield property="hookSize" id="yarn-hooksize" class="form-control" maxlength="255"
-        placeholder="z. B. 3.5 mm" />
+        placeholder="{f:translate(key: 'frontend.form.placeholder.size')}" />
 </div>
 
 <div class="mb-3">
@@ -36,7 +36,7 @@
         <f:translate key="tx_wdb_domain_model_yarn.needle_size" />
     </label>
     <f:form.textfield property="needleSize" id="yarn-needlesize" class="form-control" maxlength="255"
-        placeholder="z. B. 3.5 mm" />
+        placeholder="{f:translate(key: 'frontend.form.placeholder.size')}" />
 </div>
 
 <div class="mb-3">
@@ -66,7 +66,7 @@
         <f:translate key="tx_wdb_domain_model_yarn.yarn_weight" />
     </label>
     <f:form.select property="yarnWeight" id="yarn-yarnweight" class="form-select" options="{yarnWeights}"
-        prependOptionLabel="– bitte wählen –" prependOptionValue="" />
+        prependOptionLabel="{f:translate(key: 'frontend.form.choose')}" prependOptionValue="" />
 </div>
 
 <div class="mb-3">

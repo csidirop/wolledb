@@ -147,6 +147,170 @@
          <source>Current weight (g)</source>
          <target>Aktuelles Gewicht (g)</target>
        </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.skeins" approved="yes">
+        <source>Skeins</source>
+        <target>Knäuel</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.stock" approved="yes">
+        <source>Stock</source>
+        <target>Vorrat</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.save" approved="yes">
+        <source>Save</source>
+        <target>Speichern</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.cancel" approved="yes">
+        <source>Cancel</source>
+        <target>Abbrechen</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.edit" approved="yes">
+        <source>Edit</source>
+        <target>Bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.delete" approved="yes">
+        <source>Delete</source>
+        <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.add" approved="yes">
+        <source>Add</source>
+        <target>Hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.filter" approved="yes">
+        <source>Filter</source>
+        <target>Filtern</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.reset" approved="yes">
+        <source>Reset</source>
+        <target>Zurücksetzen</target>
+      </trans-unit>
+      <trans-unit id="frontend.action.back" approved="yes">
+        <source>Back to overview</source>
+        <target>Zurück zur Übersicht</target>
+      </trans-unit>
+      <trans-unit id="frontend.filter.all" approved="yes">
+        <source>All</source>
+        <target>Alle</target>
+      </trans-unit>
+      <trans-unit id="frontend.form.errors" approved="yes">
+        <source>Please check your input:</source>
+        <target>Bitte prüfe deine Eingaben:</target>
+      </trans-unit>
+      <trans-unit id="frontend.form.choose" approved="yes">
+        <source>– please choose –</source>
+        <target>– bitte wählen –</target>
+      </trans-unit>
+      <trans-unit id="frontend.form.placeholder.size" approved="yes">
+        <source>e.g. 3.5 mm</source>
+        <target>z. B. 3.5 mm</target>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.new" approved="yes">
+        <source>Add new yarn</source>
+        <target>Neues Garn anlegen</target>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.edit" approved="yes">
+        <source>Edit yarn</source>
+        <target>Garn bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.none" approved="yes">
+        <source>No yarns found.</source>
+        <target>Keine Garne gefunden.</target>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.delete.confirm" approved="yes">
+        <source>Really delete this yarn? Its skeins will be deleted as well.</source>
+        <target>Dieses Garn wirklich löschen? Die zugehörigen Knäuel werden ebenfalls gelöscht.</target>
+      </trans-unit>
+      <trans-unit id="frontend.stock.summary" approved="yes">
+        <source>%1$d skeins · %2$d g</source>
+        <target>%1$d Knäuel · %2$d g</target>
+      </trans-unit>
+      <trans-unit id="frontend.stock.none" approved="yes">
+        <source>no stock</source>
+        <target>kein Vorrat</target>
+      </trans-unit>
+      <trans-unit id="frontend.stock.colorless" approved="yes">
+        <source>no color</source>
+        <target>ohne Farbe</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.none" approved="yes">
+        <source>No skeins yet.</source>
+        <target>Noch keine Knäuel vorhanden.</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.allUsedUp" approved="yes">
+        <source>All skeins are used up.</source>
+        <target>Alle Knäuel sind verbraucht.</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.usedUp.summary" approved="yes">
+        <source>Used up skeins (%d)</source>
+        <target>Verbrauchte Knäuel (%d)</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.new" approved="yes">
+        <source>Add new skein</source>
+        <target>Neues Knäuel hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.quantity" approved="yes">
+        <source>Quantity</source>
+        <target>Anzahl</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.action.useUp" approved="yes">
+        <source>Used up</source>
+        <target>Aufgebraucht</target>
+      </trans-unit>
+      <trans-unit id="frontend.skein.delete.confirm" approved="yes">
+        <source>Really delete this skein?</source>
+        <target>Dieses Knäuel wirklich löschen?</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.yarn.created" approved="yes">
+        <source>The yarn "%s" was created.</source>
+        <target>Das Garn "%s" wurde angelegt.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.yarn.updated" approved="yes">
+        <source>The yarn "%s" was saved.</source>
+        <target>Das Garn "%s" wurde gespeichert.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.yarn.deleted" approved="yes">
+        <source>The yarn "%s" was deleted.</source>
+        <target>Das Garn "%s" wurde gelöscht.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.created.one" approved="yes">
+        <source>1 skein (%1$s, %2$d g) was added.</source>
+        <target>1 Knäuel (%1$s, %2$d g) wurde hinzugefügt.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.created.many" approved="yes">
+        <source>%1$d skeins (%2$s, %3$d g each) were added.</source>
+        <target>%1$d Knäuel (%2$s, je %3$d g) wurden hinzugefügt.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.usedUp" approved="yes">
+        <source>The skein (%s) is now marked as used up.</source>
+        <target>Das Knäuel (%s) ist jetzt als verbraucht markiert.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.restocked" approved="yes">
+        <source>The skein (%s) is back in stock.</source>
+        <target>Das Knäuel (%s) ist wieder im Vorrat.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.weightSet" approved="yes">
+        <source>The remaining weight was set to %d g.</source>
+        <target>Das Restgewicht wurde auf %d g gesetzt.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.deleted" approved="yes">
+        <source>The skein (%s) was deleted.</source>
+        <target>Das Knäuel (%s) wurde gelöscht.</target>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.color" approved="yes">
+        <source>Please enter a color (at most 255 characters).</source>
+        <target>Bitte gib eine Farbe an (maximal 255 Zeichen).</target>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.weight" approved="yes">
+        <source>The weight must be a whole number between 1 and %d g.</source>
+        <target>Das Gewicht muss eine ganze Zahl zwischen 1 und %d g sein.</target>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.quantity" approved="yes">
+        <source>The quantity must be a whole number between 1 and %d.</source>
+        <target>Die Anzahl muss eine ganze Zahl zwischen 1 und %d sein.</target>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.remaining" approved="yes">
+        <source>The remaining weight must be a whole number between 0 and %d g.</source>
+        <target>Das Restgewicht muss eine ganze Zahl zwischen 0 und %d g sein.</target>
+      </trans-unit>
       <trans-unit id="plugin.yarnindex.title" approved="yes">
         <source>Yarn List</source>
         <target>Garnliste</target>

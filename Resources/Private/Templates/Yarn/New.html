@@ -3,13 +3,19 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-    <h2>Neues Garn anlegen</h2>
+    <h2>
+        <f:translate key="frontend.yarn.new" />
+    </h2>
 
     <f:form action="create" objectName="yarn" object="{yarn}">
         <f:render partial="Yarn/FormFields" arguments="{mainfibers: mainfibers, yarnWeights: yarnWeights}" />
 
-        <button type="submit" class="btn btn-primary">Speichern</button>
-        <f:link.action action="index" class="btn btn-link">Abbrechen</f:link.action>
+        <button type="submit" class="btn btn-primary">
+            <f:translate key="frontend.action.save" />
+        </button>
+        <f:link.action action="index" class="btn btn-link">
+            <f:translate key="frontend.action.cancel" />
+        </f:link.action>
     </f:form>
 </f:section>
 

@@ -11,7 +11,6 @@ use SBW\WDB\Domain\Repository\SkeinRepository;
 use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Controller for the skeins of a yarn. It belongs to the same plugin as the YarnController,
@@ -20,7 +19,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  * A skein with a remaining weight of 0 counts as used up: it stays in the database (and is shown
  * greyed out in a collapsed section), so it can be put back into stock by entering a weight again.
  */
-class SkeinController extends ActionController
+class SkeinController extends AbstractController
 {
     private const MAX_WEIGHT = 10000;
     private const MAX_QUANTITY = 50;
@@ -46,13 +45,13 @@ class SkeinController extends ActionController
         $quantityValue = $this->parseInt($quantity);
 
         if ($color === '' || mb_strlen($color) > 255) {
-            return $this->failWith($yarn, 'Bitte gib eine Farbe an (maximal 255 Zeichen).');
+            return $this->failWith($yarn, $this->translate('frontend.error.skein.color'));
         }
         if ($weightValue === null || $weightValue < 1 || $weightValue > self::MAX_WEIGHT) {
-            return $this->failWith($yarn, 'Das Gewicht muss eine ganze Zahl zwischen 1 und ' . self::MAX_WEIGHT . ' g sein.');
+            return $this->failWith($yarn, $this->translate('frontend.error.skein.weight', [self::MAX_WEIGHT]));
         }
         if ($quantityValue === null || $quantityValue < 1 || $quantityValue > self::MAX_QUANTITY) {
-            return $this->failWith($yarn, 'Die Anzahl muss eine ganze Zahl zwischen 1 und ' . self::MAX_QUANTITY . ' sein.');
+            return $this->failWith($yarn, $this->translate('frontend.error.skein.quantity', [self::MAX_QUANTITY]));
         }
 
         for ($i = 0; $i < $quantityValue; $i++) {
@@ -68,8 +67,8 @@ class SkeinController extends ActionController
 
         $this->addFlashMessage(
             $quantityValue === 1
-            ? sprintf('1 Knäuel (%s, %d g) wurde hinzugefügt.', $color, $weightValue)
-            : sprintf('%d Knäuel (%s, je %d g) wurden hinzugefügt.', $quantityValue, $color, $weightValue)
+            ? $this->translate('frontend.flash.skein.created.one', [$color, $weightValue])
+            : $this->translate('frontend.flash.skein.created.many', [$quantityValue, $color, $weightValue])
         );
 
         return $this->redirectToYarnOf($yarn);
@@ -88,7 +87,7 @@ class SkeinController extends ActionController
         $weightValue = $this->parseInt($weight);
 
         if ($weightValue === null || $weightValue < 0 || $weightValue > self::MAX_WEIGHT) {
-            return $this->failWith($yarn, 'Das Restgewicht muss eine ganze Zahl zwischen 0 und ' . self::MAX_WEIGHT . ' g sein.');
+            return $this->failWith($yarn, $this->translate('frontend.error.skein.remaining', [self::MAX_WEIGHT]));
         }
 
         $wasUsedUp = $skein->isUsedUp();
@@ -96,11 +95,11 @@ class SkeinController extends ActionController
         $this->skeinRepository->update($skein);
 
         if ($weightValue === 0) {
-            $this->addFlashMessage('Das Knäuel (' . $this->label($skein) . ') ist jetzt als verbraucht markiert.');
+            $this->addFlashMessage($this->translate('frontend.flash.skein.usedUp', [$this->label($skein)]));
         } elseif ($wasUsedUp) {
-            $this->addFlashMessage('Das Knäuel (' . $this->label($skein) . ') ist wieder im Vorrat.');
+            $this->addFlashMessage($this->translate('frontend.flash.skein.restocked', [$this->label($skein)]));
         } else {
-            $this->addFlashMessage('Das Restgewicht wurde auf ' . $weightValue . ' g gesetzt.');
+            $this->addFlashMessage($this->translate('frontend.flash.skein.weightSet', [$weightValue]));
         }
 
         return $this->redirectToYarnOf($yarn);
@@ -114,7 +113,7 @@ class SkeinController extends ActionController
     {
         $skein->setCurrentWeight(0);
         $this->skeinRepository->update($skein);
-        $this->addFlashMessage('Das Knäuel (' . $this->label($skein) . ') ist jetzt als verbraucht markiert.');
+        $this->addFlashMessage($this->translate('frontend.flash.skein.usedUp', [$this->label($skein)]));
 
         return $this->redirectToYarnOf($skein->getYarn());
     }
@@ -129,7 +128,7 @@ class SkeinController extends ActionController
         $yarn = $skein->getYarn();
         $label = $this->label($skein);
         $this->skeinRepository->remove($skein);
-        $this->addFlashMessage('Das Knäuel (' . $label . ') wurde gelöscht.');
+        $this->addFlashMessage($this->translate('frontend.flash.skein.deleted', [$label]));
 
         return $this->redirectToYarnOf($yarn);
     }
@@ -148,7 +147,7 @@ class SkeinController extends ActionController
     {
         $color = trim($skein->getColor());
 
-        return ($color !== '' ? $color : 'ohne Farbe') . ', ' . $skein->getInitialWeight() . ' g';
+        return ($color !== '' ? $color : $this->translate('frontend.stock.colorless')) . ', ' . $skein->getInitialWeight() . ' g';
     }
 
     /**

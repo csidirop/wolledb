@@ -111,6 +111,129 @@
       <trans-unit id="tx_wdb_domain_model_skein.current_weight">
         <source>Current weight (g)</source>
       </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.skeins">
+        <source>Skeins</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_yarn.stock">
+        <source>Stock</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.save">
+        <source>Save</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.cancel">
+        <source>Cancel</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.edit">
+        <source>Edit</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.delete">
+        <source>Delete</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.add">
+        <source>Add</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.filter">
+        <source>Filter</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.reset">
+        <source>Reset</source>
+      </trans-unit>
+      <trans-unit id="frontend.action.back">
+        <source>Back to overview</source>
+      </trans-unit>
+      <trans-unit id="frontend.filter.all">
+        <source>All</source>
+      </trans-unit>
+      <trans-unit id="frontend.form.errors">
+        <source>Please check your input:</source>
+      </trans-unit>
+      <trans-unit id="frontend.form.choose">
+        <source>– please choose –</source>
+      </trans-unit>
+      <trans-unit id="frontend.form.placeholder.size">
+        <source>e.g. 3.5 mm</source>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.new">
+        <source>Add new yarn</source>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.edit">
+        <source>Edit yarn</source>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.none">
+        <source>No yarns found.</source>
+      </trans-unit>
+      <trans-unit id="frontend.yarn.delete.confirm">
+        <source>Really delete this yarn? Its skeins will be deleted as well.</source>
+      </trans-unit>
+      <trans-unit id="frontend.stock.summary">
+        <source>%1$d skeins · %2$d g</source>
+      </trans-unit>
+      <trans-unit id="frontend.stock.none">
+        <source>no stock</source>
+      </trans-unit>
+      <trans-unit id="frontend.stock.colorless">
+        <source>no color</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.none">
+        <source>No skeins yet.</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.allUsedUp">
+        <source>All skeins are used up.</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.usedUp.summary">
+        <source>Used up skeins (%d)</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.new">
+        <source>Add new skein</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.quantity">
+        <source>Quantity</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.action.useUp">
+        <source>Used up</source>
+      </trans-unit>
+      <trans-unit id="frontend.skein.delete.confirm">
+        <source>Really delete this skein?</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.yarn.created">
+        <source>The yarn "%s" was created.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.yarn.updated">
+        <source>The yarn "%s" was saved.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.yarn.deleted">
+        <source>The yarn "%s" was deleted.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.created.one">
+        <source>1 skein (%1$s, %2$d g) was added.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.created.many">
+        <source>%1$d skeins (%2$s, %3$d g each) were added.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.usedUp">
+        <source>The skein (%s) is now marked as used up.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.restocked">
+        <source>The skein (%s) is back in stock.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.weightSet">
+        <source>The remaining weight was set to %d g.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.skein.deleted">
+        <source>The skein (%s) was deleted.</source>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.color">
+        <source>Please enter a color (at most 255 characters).</source>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.weight">
+        <source>The weight must be a whole number between 1 and %d g.</source>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.quantity">
+        <source>The quantity must be a whole number between 1 and %d.</source>
+      </trans-unit>
+      <trans-unit id="frontend.error.skein.remaining">
+        <source>The remaining weight must be a whole number between 0 and %d g.</source>
+      </trans-unit>
       <trans-unit id="plugin.yarnindex.title">
         <source>Yarn List</source>
       </trans-unit>

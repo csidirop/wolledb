@@ -1,5 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <!-- Table of skeins with the actions per row. Argument: skeins (list of Skein) -->
+<f:variable name="confirmDelete">
+    <f:translate key="frontend.skein.delete.confirm" />
+</f:variable>
 <div class="table-responsive">
     <table class="table table-sm align-middle">
         <thead>
@@ -33,20 +36,26 @@
                             <f:form.textfield name="weight" type="number" value="{skein.currentWeight}"
                                 class="form-control form-control-sm" style="max-width: 7rem" required="required"
                                 additionalAttributes="{min: 0, max: 10000}" />
-                            <button type="submit" class="btn btn-sm btn-outline-primary">Speichern</button>
+                            <button type="submit" class="btn btn-sm btn-outline-primary">
+                                <f:translate key="frontend.action.save" />
+                            </button>
                         </f:form>
                     </td>
                     <td class="text-nowrap">
                         <f:if condition="{skein.usedUp}">
                             <f:else>
                                 <f:form action="useUp" controller="Skein" arguments="{skein: skein}" class="d-inline">
-                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Aufgebraucht</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">
+                                        <f:translate key="frontend.skein.action.useUp" />
+                                    </button>
                                 </f:form>
                             </f:else>
                         </f:if>
                         <f:form action="delete" controller="Skein" arguments="{skein: skein}" class="d-inline"
-                            onsubmit="return confirm('Dieses Knäuel wirklich löschen?');">
-                            <button type="submit" class="btn btn-sm btn-outline-danger">Löschen</button>
+                            data="{confirm: confirmDelete}" onsubmit="return confirm(this.dataset.confirm);">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <f:translate key="frontend.action.delete" />
+                            </button>
                         </f:form>
                     </td>
                 </tr>
