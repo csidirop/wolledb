@@ -1,0 +1,58 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<!-- Table of skeins with the actions per row. Argument: skeins (list of Skein) -->
+<div class="table-responsive">
+    <table class="table table-sm align-middle">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <f:translate key="tx_wdb_domain_model_skein.color" />
+                </th>
+                <th scope="col">
+                    <f:translate key="tx_wdb_domain_model_skein.initial_weight" />
+                </th>
+                <th scope="col">
+                    <f:translate key="tx_wdb_domain_model_skein.current_weight" />
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <f:for each="{skeins}" as="skein">
+                <tr>
+                    <td class="{f:if(condition: skein.usedUp, then: 'text-muted')}">
+                        <f:if condition="{skein.color}">
+                            <f:then>{skein.color}</f:then>
+                            <f:else>–</f:else>
+                        </f:if>
+                    </td>
+                    <td class="{f:if(condition: skein.usedUp, then: 'text-muted')}">{skein.initialWeight}</td>
+                    <td>
+                        <!-- Change the remaining weight. 0 = used up; a value above 0 puts a used-up skein back into stock. -->
+                        <f:form action="updateWeight" controller="Skein" arguments="{skein: skein}"
+                            class="d-flex gap-1">
+                            <f:form.textfield name="weight" type="number" value="{skein.currentWeight}"
+                                class="form-control form-control-sm" style="max-width: 7rem" required="required"
+                                additionalAttributes="{min: 0, max: 10000}" />
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Speichern</button>
+                        </f:form>
+                    </td>
+                    <td class="text-nowrap">
+                        <f:if condition="{skein.usedUp}">
+                            <f:else>
+                                <f:form action="useUp" controller="Skein" arguments="{skein: skein}" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Aufgebraucht</button>
+                                </f:form>
+                            </f:else>
+                        </f:if>
+                        <f:form action="delete" controller="Skein" arguments="{skein: skein}" class="d-inline"
+                            onsubmit="return confirm('Dieses Knäuel wirklich löschen?');">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Löschen</button>
+                        </f:form>
+                    </td>
+                </tr>
+            </f:for>
+        </tbody>
+    </table>
+</div>
+
+</html>

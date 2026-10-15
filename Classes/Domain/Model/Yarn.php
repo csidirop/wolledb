@@ -224,6 +224,32 @@ class Yarn extends AbstractEntity
     }
 
     /**
+     * Skeins that are used up (remaining weight 0), sorted as in getSortedSkeins().
+     *
+     * @return list<Skein>
+     */
+    public function getSortedUsedUpSkeins(): array
+    {
+        return array_values(array_filter(
+            $this->getSortedSkeins(),
+            static fn(Skein $skein): bool => $skein->isUsedUp()
+        ));
+    }
+
+    /**
+     * Skeins that are not used up yet, sorted as in getSortedSkeins().
+     *
+     * @return list<Skein>
+     */
+    public function getSortedAvailableSkeins(): array
+    {
+        return array_values(array_filter(
+            $this->getSortedSkeins(),
+            static fn(Skein $skein): bool => !$skein->isUsedUp()
+        ));
+    }
+
+    /**
      * Available skeins grouped by color, most frequent first, e.g.
      * [['color' => 'schwarz', 'count' => 3], ['color' => 'blau', 'count' => 1]].
      * Colors are compared ignoring case and surrounding spaces ("Schwarz" = "schwarz ").

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use SBW\WDB\Controller\YarnController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use SBW\WDB\Controller\SkeinController;
 
 defined('TYPO3') or die('Access denied.');
 
@@ -16,10 +17,12 @@ ExtensionUtility::configurePlugin(
     // all actions
     [
         YarnController::class => 'index, show, new, create, edit, update, delete',
+        SkeinController::class => 'create, updateWeight, useUp, delete',
     ],
     // The list reacts to filter/sort parameters, so it must not be cached with the page.
     [
-        YarnController::class => 'index, new, create, edit, update, delete',
+        YarnController::class => 'index, show, new, create, edit, update, delete',
+        SkeinController::class => 'create, updateWeight, useUp, delete',
     ]
 
 );
