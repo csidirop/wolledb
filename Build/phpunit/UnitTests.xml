@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+    PHPUnit configuration for the unit tests of this extension.
+    Based on the boilerplate of typo3/testing-framework (Resources/Core/Build/UnitTests.xml).
+
+    Run from the root folder of the TYPO3 project (where vendor/ and public/ are), e.g. with ddev:
+
+        ddev exec vendor/bin/phpunit -c src/extensions/wolledb/Build/phpunit/UnitTests.xml
+
+    Needs the package typo3/testing-framework as a dev dependency of the project
+    (ddev composer require, with the option for dev dependencies).
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.2/phpunit.xsd"
+         backupGlobals="true"
+         bootstrap="UnitTestsBootstrap.php"
+         cacheDirectory=".phpunit.cache"
+         cacheResult="false"
+         colors="true"
+         displayDetailsOnTestsThatTriggerDeprecations="true"
+         displayDetailsOnTestsThatTriggerErrors="true"
+         displayDetailsOnTestsThatTriggerNotices="true"
+         displayDetailsOnTestsThatTriggerWarnings="true"
+         failOnDeprecation="true"
+         failOnNotice="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         requireCoverageMetadata="false"
+>
+    <testsuites>
+        <testsuite name="Unit tests">
+            <!-- Relative to this file: Build/phpunit/ -> Tests/Unit/ -->
+            <directory>../../Tests/Unit/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <ini name="display_errors" value="1"/>
+        <env name="TYPO3_CONTEXT" value="Testing"/>
+    </php>
+</phpunit>

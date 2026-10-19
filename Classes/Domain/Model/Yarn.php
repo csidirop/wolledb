@@ -263,15 +263,18 @@ class Yarn extends AbstractEntity
             $label = trim($skein->getColor());
             $key = mb_strtolower($label);
             if (!isset($groups[$key])) {
-                $groups[$key] = ['color' => $label, 'count' => 0];
+                $groups[$key] = ['key' => $key, 'color' => $label, 'count' => 0];
             }
             $groups[$key]['count']++;
         }
 
         $groups = array_values($groups);
-        usort($groups, static fn(array $a, array $b): int => [$b['count'], $a['color']] <=> [$a['count'], $b['color']]);
+        usort($groups, static fn(array $a, array $b): int => [$b['count'], $a['key']] <=> [$a['count'], $b['key']]);
 
-        return $groups;
+        return array_map(
+            static fn(array $group): array => ['color' => $group['color'], 'count' => $group['count']],
+            $groups
+        );
     }
 
 }
