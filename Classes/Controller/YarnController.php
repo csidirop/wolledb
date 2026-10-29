@@ -8,7 +8,6 @@ use Psr\Http\Message\ResponseInterface;
 use SBW\WDB\Domain\Model\Yarn;
 use SBW\WDB\Domain\Repository\YarnRepository;
 use TYPO3\CMS\Core\Http\PropagateResponseException;
-use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\Controller\ErrorController;
@@ -88,7 +87,7 @@ class YarnController extends AbstractController
         $this->yarnRepository->add($yarn);
         $this->addFlashMessage($this->translate('frontend.flash.yarn.created', [$yarn->getName()]));
 
-        return $this->redirectToIndex();
+        return $this->redirectToAction('index');
     }
 
     /**
@@ -117,7 +116,7 @@ class YarnController extends AbstractController
         $this->yarnRepository->update($yarn);
         $this->addFlashMessage($this->translate('frontend.flash.yarn.updated', [$yarn->getName()]));
 
-        return $this->redirectToIndex();
+        return $this->redirectToAction('index');
     }
 
     /**
@@ -134,19 +133,9 @@ class YarnController extends AbstractController
         $this->yarnRepository->remove($yarn);
         $this->addFlashMessage($this->translate('frontend.flash.yarn.deleted', [$name]));
 
-        return $this->redirectToIndex();
+        return $this->redirectToAction('index');
     }
 
-    /**
-     * Redirect with a relative URL. $this->redirect() would build an absolute URL with the scheme,
-     * host and port TYPO3 detects, which can be wrong behind a reverse proxy (e.g. ddev).
-     */
-    private function redirectToIndex(): ResponseInterface
-    {
-        $uri = $this->uriBuilder->reset()->uriFor('index');
-
-        return new RedirectResponse($uri, 303);
-    }
 
     /**
      * Reads the allowed values of a select field from the TCA.

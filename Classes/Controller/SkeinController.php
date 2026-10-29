@@ -8,7 +8,6 @@ use Psr\Http\Message\ResponseInterface;
 use SBW\WDB\Domain\Model\Skein;
 use SBW\WDB\Domain\Model\Yarn;
 use SBW\WDB\Domain\Repository\SkeinRepository;
-use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 
@@ -162,14 +161,11 @@ class SkeinController extends AbstractController
 
     /**
      * Redirects to the detail page of the yarn, or to the list if the skein has no yarn.
-     * The URL is relative (see YarnController::redirectToIndex() for why it is not an absolute one).
      */
     private function redirectToYarnOf(?Yarn $yarn): ResponseInterface
     {
-        $uri = $yarn !== null
-            ? $this->uriBuilder->reset()->uriFor('show', ['yarn' => $yarn], 'Yarn')
-            : $this->uriBuilder->reset()->uriFor('index', [], 'Yarn');
-
-        return new RedirectResponse($uri, 303);
+        return $yarn !== null
+            ? $this->redirectToAction('show', ['yarn' => $yarn], 'Yarn')
+            : $this->redirectToAction('index', [], 'Yarn');
     }
 }
