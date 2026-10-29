@@ -311,6 +311,126 @@
         <source>The remaining weight must be a whole number between 0 and %d g.</source>
         <target>Das Restgewicht muss eine ganze Zahl zwischen 0 und %d g sein.</target>
       </trans-unit>
+      <trans-unit id="frontend.validation.1771000001" approved="yes">
+        <source>Please choose a value.</source>
+        <target>Bitte wähle einen Wert aus.</target>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000002" approved="yes">
+        <source>This value is not allowed. Please choose one of the options.</source>
+        <target>Dieser Wert ist nicht erlaubt. Bitte wähle eine der Optionen.</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.title" approved="yes">
+        <source>Project</source>
+        <target>Projekt</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.hidden" approved="yes">
+        <source>Hidden</source>
+        <target>Versteckt</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.name" approved="yes">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status" approved="yes">
+        <source>Status</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status.planned" approved="yes">
+        <source>Planned</source>
+        <target>Geplant</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status.in_progress" approved="yes">
+        <source>In progress</source>
+        <target>In Arbeit</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status.finished" approved="yes">
+        <source>Finished</source>
+        <target>Fertig</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.kind" approved="yes">
+        <source>Type</source>
+        <target>Art</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.start_date" approved="yes">
+        <source>Start</source>
+        <target>Beginn</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.end_date" approved="yes">
+        <source>End</source>
+        <target>Ende</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.needle_size" approved="yes">
+        <source>Needle size</source>
+        <target>Nadelstärke</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.pattern_url" approved="yes">
+        <source>Pattern link</source>
+        <target>Link zur Anleitung</target>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.notes" approved="yes">
+        <source>Notes</source>
+        <target>Notizen</target>
+      </trans-unit>
+      <trans-unit id="plugin.projectindex.title" approved="yes">
+        <source>Projects</source>
+        <target>Projekte</target>
+      </trans-unit>
+      <trans-unit id="plugin.projectindex.description" approved="yes">
+        <source>Lists and manages knitting and crochet projects</source>
+        <target>Zeigt und verwaltet Strick- und Häkelprojekte</target>
+      </trans-unit>
+      <trans-unit id="frontend.project.heading" approved="yes">
+        <source>Projects</source>
+        <target>Projekte</target>
+      </trans-unit>
+      <trans-unit id="frontend.project.new" approved="yes">
+        <source>Add new project</source>
+        <target>Neues Projekt anlegen</target>
+      </trans-unit>
+      <trans-unit id="frontend.project.edit" approved="yes">
+        <source>Edit project</source>
+        <target>Projekt bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="frontend.project.none" approved="yes">
+        <source>No projects yet.</source>
+        <target>Noch keine Projekte vorhanden.</target>
+      </trans-unit>
+      <trans-unit id="frontend.project.period" approved="yes">
+        <source>Period</source>
+        <target>Zeitraum</target>
+      </trans-unit>
+      <trans-unit id="frontend.project.delete.confirm" approved="yes">
+        <source>Really delete this project?</source>
+        <target>Dieses Projekt wirklich löschen?</target>
+      </trans-unit>
+      <trans-unit id="frontend.date.format" approved="yes">
+        <source>Y-m-d</source>
+        <target>d.m.Y</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.project.created" approved="yes">
+        <source>The project "%s" was created.</source>
+        <target>Das Projekt "%s" wurde angelegt.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.project.updated" approved="yes">
+        <source>The project "%s" was saved.</source>
+        <target>Das Projekt "%s" wurde gespeichert.</target>
+      </trans-unit>
+      <trans-unit id="frontend.flash.project.deleted" approved="yes">
+        <source>The project "%s" was deleted.</source>
+        <target>Das Projekt "%s" wurde gelöscht.</target>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000003" approved="yes">
+        <source>Please enter a valid link starting with http:// or https://.</source>
+        <target>Bitte gib einen gültigen Link ein, der mit http:// oder https:// beginnt.</target>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000004" approved="yes">
+        <source>The end date must not be before the start date.</source>
+        <target>Das Ende darf nicht vor dem Beginn liegen.</target>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000005" approved="yes">
+        <source>The status cannot be changed this way.</source>
+        <target>Der Status lässt sich so nicht ändern.</target>
+      </trans-unit>
       <trans-unit id="plugin.yarnindex.title" approved="yes">
         <source>Yarn List</source>
         <target>Garnliste</target>

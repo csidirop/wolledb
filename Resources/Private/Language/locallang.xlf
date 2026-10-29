@@ -234,6 +234,96 @@
       <trans-unit id="frontend.error.skein.remaining">
         <source>The remaining weight must be a whole number between 0 and %d g.</source>
       </trans-unit>
+      <trans-unit id="frontend.validation.1771000001">
+        <source>Please choose a value.</source>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000002">
+        <source>This value is not allowed. Please choose one of the options.</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.title">
+        <source>Project</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.hidden">
+        <source>Hidden</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.name">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status">
+        <source>Status</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status.planned">
+        <source>Planned</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status.in_progress">
+        <source>In progress</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.status.finished">
+        <source>Finished</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.kind">
+        <source>Type</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.start_date">
+        <source>Start</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.end_date">
+        <source>End</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.needle_size">
+        <source>Needle size</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.pattern_url">
+        <source>Pattern link</source>
+      </trans-unit>
+      <trans-unit id="tx_wdb_domain_model_project.notes">
+        <source>Notes</source>
+      </trans-unit>
+      <trans-unit id="plugin.projectindex.title">
+        <source>Projects</source>
+      </trans-unit>
+      <trans-unit id="plugin.projectindex.description">
+        <source>Lists and manages knitting and crochet projects</source>
+      </trans-unit>
+      <trans-unit id="frontend.project.heading">
+        <source>Projects</source>
+      </trans-unit>
+      <trans-unit id="frontend.project.new">
+        <source>Add new project</source>
+      </trans-unit>
+      <trans-unit id="frontend.project.edit">
+        <source>Edit project</source>
+      </trans-unit>
+      <trans-unit id="frontend.project.none">
+        <source>No projects yet.</source>
+      </trans-unit>
+      <trans-unit id="frontend.project.period">
+        <source>Period</source>
+      </trans-unit>
+      <trans-unit id="frontend.project.delete.confirm">
+        <source>Really delete this project?</source>
+      </trans-unit>
+      <trans-unit id="frontend.date.format">
+        <source>Y-m-d</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.project.created">
+        <source>The project "%s" was created.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.project.updated">
+        <source>The project "%s" was saved.</source>
+      </trans-unit>
+      <trans-unit id="frontend.flash.project.deleted">
+        <source>The project "%s" was deleted.</source>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000003">
+        <source>Please enter a valid link starting with http:// or https://.</source>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000004">
+        <source>The end date must not be before the start date.</source>
+      </trans-unit>
+      <trans-unit id="frontend.validation.1771000005">
+        <source>The status cannot be changed this way.</source>
+      </trans-unit>
       <trans-unit id="plugin.yarnindex.title">
         <source>Yarn List</source>
       </trans-unit>

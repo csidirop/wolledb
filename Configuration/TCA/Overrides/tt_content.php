@@ -14,3 +14,12 @@ ExtensionUtility::registerPlugin(
     'plugins',
     'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:plugin.yarnindex.description',
 );
+
+ExtensionUtility::registerPlugin(
+    'Wdb',
+    'ProjectIndex',
+    'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:plugin.projectindex.title',
+    'EXT:wdb/Resources/Public/Icons/Yarn.svg',
+    'plugins',
+    'LLL:EXT:wdb/Resources/Private/Language/locallang.xlf:plugin.projectindex.description',
+);

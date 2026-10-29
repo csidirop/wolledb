@@ -26,3 +26,16 @@ ExtensionUtility::configurePlugin(
     ]
 
 );
+
+ExtensionUtility::configurePlugin(
+    'Wdb',
+    'ProjectIndex',
+    // all actions
+    [
+        ProjectController::class => 'index, show, new, create, edit, update, delete',
+    ],
+    // none of them is cached: forms handle input and a cached detail page would show old data after an edit
+    [
+        ProjectController::class => 'index, show, new, create, edit, update, delete',
+    ]
+);
